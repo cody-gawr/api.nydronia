@@ -1,0 +1,3 @@
+#m h  d m w  command
+*  *  * * *  php /opt/artisan schedule:run
+
