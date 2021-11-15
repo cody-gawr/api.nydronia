@@ -167,7 +167,7 @@ return [
     'defaults' => [
         'supervisor-1' => [
             'connection' => 'redis',
-            'queue' => ['cocoricos', 'default'],
+            'queue' => ['nydronia', 'default'],
             'balance' => 'auto',
             'maxProcesses' => 1,
             'memory' => 128,
@@ -180,7 +180,7 @@ return [
         'production' => [
             'supervisor-1' => [
                 'connection' => 'redis',
-                'queue' => ['cocoricos', 'default'],
+                'queue' => ['nydronia', 'default'],
                 'maxProcesses' => 10,
                 'memory' => 2048,
                 'balanceMaxShift' => 1,
@@ -191,7 +191,7 @@ return [
         'local' => [
             'supervisor-1' => [
                 'connection' => 'redis',
-                'queue' => ['cocoricos', 'default'],
+                'queue' => ['nydronia', 'default'],
                 'maxProcesses' => 3,
                 'balanceMaxShift' => 1,
                 'balanceCooldown' => 3,

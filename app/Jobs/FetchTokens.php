@@ -9,6 +9,8 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
+use App\Contracts\TokenContract;
+
 class FetchTokens implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -25,11 +27,12 @@ class FetchTokens implements ShouldQueue
 
     /**
      * Execute the job.
+     * @param TokenContract $contract
      *
      * @return void
      */
-    public function handle()
+    public function handle(TokenContract $contract)
     {
-        //
+        $contract->fetchAndStore();
     }
 }

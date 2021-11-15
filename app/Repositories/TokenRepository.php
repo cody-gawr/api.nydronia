@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
+use Log;
 
 use Util;
 use App\Models\{
@@ -33,9 +34,10 @@ class TokenRepository extends BaseRepository implements TokenRepositoryInterface
         $tokens = collect();
         $endpoint = 'https://api.coingecko.com/api/v3/coins/list';
         $response = Http::get($endpoint, [
-            'include_platform' => true
+            'include_platform' => 'true'
         ]);
         collect($response->json())->each(function ($item) use ($tokens) {
+            Log::info('item', $item);
             foreach ($item['platforms'] as $chain => $tokenAddress) {
                 if (empty($chain) || empty($tokenAddress)) {
                     continue;
@@ -46,7 +48,7 @@ class TokenRepository extends BaseRepository implements TokenRepositoryInterface
                         [
                             'token_id' => $item['id'],
                             'chain' => $chain,
-                            'contract_address' => $tokenAddress
+                            'token_address' => $tokenAddress
                         ]
                     )
                 );
