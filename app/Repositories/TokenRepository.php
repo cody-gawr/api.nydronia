@@ -30,7 +30,29 @@ class TokenRepository extends BaseRepository implements TokenRepositoryInterface
      */
     public function fetch(): \Illuminate\Support\Collection
     {
-        return collect();
+        $tokens = collect();
+        $endpoint = 'https://api.coingecko.com/api/v3/coins/list';
+        $response = Http::get($endpoint, [
+            'include_platform' => true
+        ]);
+        collect($response->json())->each(function ($item) use ($tokens) {
+            foreach ($item['platforms'] as $chain => $contractAddress) {
+                if (empty($chain) || empty($tokenAddress)) {
+                    continue;
+                }
+                $tokens->push(
+                    array_merge(
+                        collect($item)->except(['id', 'platforms'])->all(),
+                        [
+                            'token_id' => $item['id'],
+                            'chain' => $chain,
+                            'contract_address' => $contractAddress
+                        ]
+                    )
+                );
+            }
+        });
+        return $tokens;
     }
 
     public function findByContractAddress(string $contractAddress): ?Token
@@ -50,14 +72,14 @@ class TokenRepository extends BaseRepository implements TokenRepositoryInterface
     public function store(\Illuminate\Support\Collection $tokens): void
     {
         $tokens->each(function ($token) {
-            $retrievableProps = collect($token)->only(['token_id', 'chain'])->all();
-            $storableProps = collect($token)->except(['token_id', 'chain'])
+            $retrievableFields = collect($token)->only(['token_id', 'chain'])->all();
+            $storableFields = collect($token)->except(['token_id', 'chain'])
                 ->merge([
                     'row_uuid' => Util::uuid()
                 ])->all();
             $this->model->firstOrCreate(
-                $retrievableProps,
-                $storableProps
+                $retrievableFields,
+                $storableFields
             );
         });
     }

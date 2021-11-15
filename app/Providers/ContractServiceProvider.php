@@ -4,10 +4,12 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-// use App\Contracts\{
-// };
-// use App\Services\{
-// };
+use App\Contracts\{
+    TokenContract
+};
+use App\Services\{
+    TokenService
+};
 
 class ContractServiceProvider extends ServiceProvider
 {
@@ -29,5 +31,6 @@ class ContractServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        $this->app->singleton(TokenContract::class, TokenService::class);
     }
 }
