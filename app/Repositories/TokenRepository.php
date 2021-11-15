@@ -36,7 +36,7 @@ class TokenRepository extends BaseRepository implements TokenRepositoryInterface
             'include_platform' => true
         ]);
         collect($response->json())->each(function ($item) use ($tokens) {
-            foreach ($item['platforms'] as $chain => $contractAddress) {
+            foreach ($item['platforms'] as $chain => $tokenAddress) {
                 if (empty($chain) || empty($tokenAddress)) {
                     continue;
                 }
@@ -46,7 +46,7 @@ class TokenRepository extends BaseRepository implements TokenRepositoryInterface
                         [
                             'token_id' => $item['id'],
                             'chain' => $chain,
-                            'contract_address' => $contractAddress
+                            'contract_address' => $tokenAddress
                         ]
                     )
                 );
@@ -55,9 +55,9 @@ class TokenRepository extends BaseRepository implements TokenRepositoryInterface
         return $tokens;
     }
 
-    public function findByContractAddress(string $contractAddress): ?Token
+    public function findByTokenAddress(string $tokenAddress): ?Token
     {
-        return $this->model->whereRaw('lower(contract_address) = ?', Str::lower($contractAddress))->first();
+        return $this->model->whereRaw('lower(token_address) = ?', Str::lower($tokenAddress))->first();
     }
 
     public function getTokensByChain(string $chain): \Illuminate\Database\Eloquent\Collection

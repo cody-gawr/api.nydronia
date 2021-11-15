@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'nydronia'], function () {
+    Route::group(['prefix' => 'token'], function () {
+        Route::get('price/{tokenAddress}', 'TokenController@getPrice')->where(['tokenAddress' => '^(0x)?[a-fA-F0-9]{40}$']);
+    });
 });
