@@ -11,7 +11,8 @@ class TokenController extends Controller
     //
     public function getPrice(string $tokenAddress, TokenContract $contract)
     {
-        $contract->fetchAndStore();
-        return $this->apiReply($tokenAddress);
+        return $this->apiReply(
+            $contract->getPrice($tokenAddress)
+        );
     }
 }

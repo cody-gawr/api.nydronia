@@ -89,3 +89,4 @@
 172.30.0.1 - - [15/Nov/2021:15:38:25 +0000] "GET /api/nydronia/token/price/0x8D2128eC0C862d8bFBe48334E7f1ed017b0DFAc3 HTTP/1.1" 500 11909 "-" "PostmanRuntime/7.28.4" "-"
 172.30.0.1 - - [15/Nov/2021:15:39:49 +0000] "GET /api/nydronia/token/price/0x8D2128eC0C862d8bFBe48334E7f1ed017b0DFAc3 HTTP/1.1" 500 16386 "-" "PostmanRuntime/7.28.4" "-"
 172.30.0.1 - - [15/Nov/2021:15:40:46 +0000] "GET /api/nydronia/token/price/0x8D2128eC0C862d8bFBe48334E7f1ed017b0DFAc3 HTTP/1.1" 200 55 "-" "PostmanRuntime/7.28.4" "-"
+172.30.0.1 - - [15/Nov/2021:15:59:26 +0000] "GET /api/nydronia/token/price/0x3a3df212b7aa91aa0402b9035b098891d276572b HTTP/1.1" 200 164 "-" "PostmanRuntime/7.28.4" "-"
