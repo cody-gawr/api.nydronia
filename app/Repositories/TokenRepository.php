@@ -67,6 +67,11 @@ class TokenRepository extends BaseRepository implements TokenRepositoryInterface
         return $this->model->whereRaw('lower(token_address) = ?', Str::lower($tokenAddress))->firstOrFail();
     }
 
+    public function findOrFailBySymbol(string $symbol): Token
+    {
+        return $this->model->whereRaw('lower(symbol) = ?', Str::lower($symbol))->firstOrFail();
+    }
+
     public function getTokensByChain(string $chain): \Illuminate\Database\Eloquent\Collection
     {
         return $this->model->ofChain($chain)->get();
