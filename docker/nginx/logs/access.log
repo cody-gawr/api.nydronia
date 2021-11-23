@@ -104,3 +104,5 @@
 172.21.0.1 - - [21/Nov/2021:17:29:32 +0000] "GET /favicon.ico HTTP/1.1" 404 6628 "http://localhost/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" "-"
 172.21.0.1 - - [21/Nov/2021:18:06:26 +0000] "GET /MFYwVKADAgEAME0wSzBJMAkGBSsOAwIaBQAEFEML0g5PE3oabJGPJOXafjJNRzPIBBSNjF7EVK2K4Xfpm%2FmbBeG4AY1h4QIQXb4cAN93xyqJO6c%2Fqsh1AA%3D%3D HTTP/1.1" 404 6628 "-" "com.apple.trustd/2.0" "-"
 172.21.0.1 - - [21/Nov/2021:18:06:26 +0000] "GET /MFYwVKADAgEAME0wSzBJMAkGBSsOAwIaBQAEFEML0g5PE3oabJGPJOXafjJNRzPIBBSNjF7EVK2K4Xfpm%2FmbBeG4AY1h4QIQXb4cAN93xyqJO6c%2Fqsh1AA%3D%3D HTTP/1.1" 404 6628 "-" "com.apple.trustd/2.0" "-"
+172.21.0.1 - - [23/Nov/2021:10:19:45 +0000] "GET /api/nydronia/token/price/0x3a3df212b7aa91aa0402b9035b098891d276572b HTTP/1.1" 500 14473 "-" "PostmanRuntime/7.28.4" "-"
+172.21.0.1 - - [23/Nov/2021:10:19:57 +0000] "GET /api/nydronia/token/price/0x3a3df212b7aa91aa0402b9035b098891d276572b HTTP/1.1" 500 14473 "-" "PostmanRuntime/7.28.4" "-"
