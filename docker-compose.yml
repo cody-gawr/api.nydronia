@@ -38,6 +38,7 @@ services:
         depends_on:
             - postgres
             - redis
+            - node
 
     # Scheduler container (schedule and queue runner)
     scheduler:
@@ -74,6 +75,15 @@ services:
         depends_on:
             - php
 
+    node:
+        image: nydronia-node
+        build:
+            context: .
+            dockerfile: docker/node/Dockerfile
+        ports:
+            - 3000:3000
+        volumes:
+            - ./node:/var/www/html/node
     # PostgreSQL database container
     postgres:
         build:
@@ -101,14 +111,6 @@ services:
             - redis:/data
         ports:
             - 63791:6379
-
-    # Client container
-    # client:
-    #     build:
-    #         context: docker/client
-    #         dockerfile: Dockerfile
-    #     volumes:
-    #         - ./client:/var/www/client
 
 ######### Volumes ###################################
 volumes:

@@ -12,8 +12,8 @@ RUN apt-get update
 # Zip
 RUN apt-get install -y libzip-dev zip && docker-php-ext-configure zip && docker-php-ext-install zip
 
-# Git
-RUN apt-get install -y git
+# Git & yarn
+RUN apt-get install -y git yarn
 
 # Curl
 RUN apt-get install -y libcurl3-dev curl && docker-php-ext-install curl

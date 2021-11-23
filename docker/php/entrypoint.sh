@@ -25,4 +25,8 @@ elif [ "$role" = "scheduler" ]; then
 
     echo "Running the schedule..."
     php /var/www/api/artisan schedule:work --verbose --no-interaction
+elif [ "$role" = "node" ]; then
+
+    echo "Running the node server..."
+    yarn dev
 fi
