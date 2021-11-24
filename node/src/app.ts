@@ -7,18 +7,18 @@ const cors = require('@koa/cors');
 const conditional = require('koa-conditional-get');
 const etag = require('koa-etag');
 
-// const rt = require('./middleware/rt');
-// const powered = require('./middleware/powered');
+const rt = require('./middleware/rt');
+const powered = require('./middleware/powered');
 // const router = require('./router');
 
 const app = new Koa();
 
-// app.use(rt);
+app.use(rt);
 app.use(conditional());
 app.use(etag());
 app.use(helmet());
 app.use(cors({ origin: '*' }));
-// app.use(powered);
+app.use(powered);
 app.use(body());
 
 app.context.cache = {};

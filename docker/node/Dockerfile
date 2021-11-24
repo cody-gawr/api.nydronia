@@ -11,6 +11,6 @@ COPY tsconfig.json ./
 RUN yarn
 
 # Configure host
-EXPOSE 3000
+EXPOSE 3001
 
 CMD yarn dev
