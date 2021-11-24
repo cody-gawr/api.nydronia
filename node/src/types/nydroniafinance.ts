@@ -9,5 +9,5 @@ export interface NydroniaFinance {
     treasury: string;
     nydroniaFeeRecipient: string;
     multicall: string;
-    bifiMaxiStrategy?: string;
+    nydroniaMaxiStrategy?: string;
 }

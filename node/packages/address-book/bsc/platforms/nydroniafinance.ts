@@ -1,0 +1,16 @@
+export const nydroniafinance = {
+    oldTimelock: '',
+    strategyOwner: '',
+    vaultOwner: '',
+    keeper: '',
+    rewarder: '',
+    treasurer: '',
+    launchpoolOwner: '',
+    devMultisig: '',
+    rewardPool: '',
+    treasury: '',
+    nydroniaFeeRecipient: '',
+    gasPrice: '',
+    multicall: '',
+    nydroinaMaxiStrategy: '',
+} as const;
